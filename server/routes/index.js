@@ -10,7 +10,7 @@ module.exports = (app) => {
 
   app.get('/api/roles', rolesController.list);
   app.post('/api/roles', rolesController.create);
-
+  app.get('/api/roles/:roleId', rolesController.retrieve);
   app.post('/api/roles/:roleId/users', usersController.create);
 
 };
