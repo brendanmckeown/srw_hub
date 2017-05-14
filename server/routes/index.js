@@ -1,4 +1,6 @@
-const rolesController = require('../controllers').rolesController;
+const controllers = require('../controllers');
+const rolesController = controllers.rolesController;
+const usersController = controllers.usersController;
 
 module.exports = (app) => {
 
@@ -8,5 +10,7 @@ module.exports = (app) => {
 
   app.get('/api/roles', rolesController.list);
   app.post('/api/roles', rolesController.create);
+
+  app.post('/api/roles/:roleId/users', usersController.create);
 
 };
