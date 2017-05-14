@@ -6,6 +6,7 @@ module.exports = (app) => {
     message: 'Welcome to the API!'
   }));
 
+  app.get('/api/roles', rolesController.list);
   app.post('/api/roles', rolesController.create);
 
 };
