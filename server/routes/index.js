@@ -12,6 +12,8 @@ module.exports = (app) => {
   app.post('/api/roles', rolesController.create);
   app.get('/api/roles/:roleId', rolesController.retrieve);
   app.put('/api/roles/:roleId', rolesController.update);
+  app.delete('/api/roles/:roleId', rolesController.destroy);
+
   app.post('/api/roles/:roleId/users', usersController.create);
 
 };

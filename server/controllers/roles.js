@@ -61,6 +61,23 @@ module.exports = {
           .catch(error => response.status(400).send(error));
       })
       .catch(error => response.status(400).send(error));
+  },
+
+  destroy(request, response) {
+    return Role
+      .findById(request.params.roleId)
+      .then(role => {
+        if (!role) {
+          return response.status(400).send({
+            message: 'Role Not Found',
+          });
+        }
+        return role
+          .destroy()
+          .then(() => response.status(204).send())
+          .catch(error => response.status(400).send(error));
+      })
+      .catch(error => response.status(400).send(error));
   }
 
 };
