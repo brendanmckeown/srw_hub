@@ -11,10 +11,14 @@ Stress relief in the workplace hub
 
         npm install
 
+1. Create your environment configuration
+
+        cp .env.dev .env
+
 1. Run database migrations
 
         npm run db:migrate
 
 1. Start the server
 
-        npm run dev
+        npm start
