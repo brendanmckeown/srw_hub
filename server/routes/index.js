@@ -1,6 +1,7 @@
 const controllers = require('../controllers');
 const rolesController = controllers.rolesController;
 const usersController = controllers.usersController;
+const touchController = controllers.touchController;
 
 module.exports = (app) => {
 
@@ -15,5 +16,8 @@ module.exports = (app) => {
   app.delete('/api/roles/:roleId', rolesController.destroy);
 
   app.post('/api/roles/:roleId/users', usersController.create);
+
+  app.get('/api/users/:userId/touches', touchController.list);
+  app.post('/api/users/:userId/touches', touchController.create);
 
 };

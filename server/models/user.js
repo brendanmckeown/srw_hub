@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey: 'roleId',
           onDelete: 'SET NULL',
         });
+        User.hasMany(models.Touch, {
+          foreignKey: 'userId',
+          as: 'touches',
+        });
       }
     }
   });
