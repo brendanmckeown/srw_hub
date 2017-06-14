@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey: 'userId',
           as: 'touches',
         });
+        User.hasMany(models.WeeklySummary, {
+          foreignKey: 'userId',
+          as: 'weeklySummaries',
+        });
       }
     }
   });

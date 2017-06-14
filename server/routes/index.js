@@ -1,7 +1,9 @@
 const controllers = require('../controllers');
 const rolesController = controllers.rolesController;
-const usersController = controllers.usersController;
+const slackController = controllers.slackController;
 const touchController = controllers.touchController;
+const usersController = controllers.usersController;
+const weeklySummaryController = controllers.weeklySummaryController;
 
 module.exports = (app) => {
 
@@ -19,5 +21,11 @@ module.exports = (app) => {
 
   app.get('/api/users/:userId/touches', touchController.list);
   app.post('/api/users/:userId/touches', touchController.create);
+
+  app.get('/api/users/:userId/weekly-summary', weeklySummaryController.list);
+  app.post('/api/users/:userId/weekly-summary', weeklySummaryController.create);
+
+  app.post('/api/slack/actions', slackController.processAction);
+  app.post('/api/slack/weekly-summary', slackController.sendWeeklySummary);
 
 };
